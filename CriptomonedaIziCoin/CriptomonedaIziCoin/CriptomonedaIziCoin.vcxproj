@@ -145,6 +145,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="RedUsuarios.h" />
+    <ClInclude Include="Sha256.h" />
     <ClInclude Include="Transaccion.h" />
     <ClInclude Include="Usuario.h" />
     <ClInclude Include="Wallet.h" />
