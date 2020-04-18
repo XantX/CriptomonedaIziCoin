@@ -10,9 +10,7 @@ public:
 		wallet = new Wallet(Correo, Contraseña);
 		this->Correo = Correo;
 		this->Contraseña = Contraseña;
-		
 	}
-	~Usuario();
 	string getContraseña() { return Contraseña;}
 	string getCorreo() { return Correo; }
 	Wallet* getBilletera() { return wallet; }

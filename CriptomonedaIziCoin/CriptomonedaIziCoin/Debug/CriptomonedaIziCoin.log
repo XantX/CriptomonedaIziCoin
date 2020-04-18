@@ -1,21 +1,3 @@
-﻿  MyForm.cpp
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(60): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(60): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(90): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(106): warning C4244: 'argumento': conversión de 'unsigned __int64' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(109): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(109): warning C4244: 'argumento': conversión de 'unsigned __int64' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(110): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(115): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(119): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(121): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(122): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(123): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(124): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(125): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(126): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(127): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\hp_xa\desktop\gitproyectocomputacional\criptomonedaizicoin\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(128): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-  MyForm.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
-  CriptomonedaIziCoin.vcxproj -> C:\Users\hp_Xa\Desktop\GitProyectoComputacional\CriptomonedaIziCoin\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.exe
-  CriptomonedaIziCoin.vcxproj -> C:\Users\hp_Xa\Desktop\GitProyectoComputacional\CriptomonedaIziCoin\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.pdb (Partial PDB)
+﻿  MyForm.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
+  CriptomonedaIziCoin.vcxproj -> C:\Users\SEBASTIAN\Desktop\GitProyect\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.exe
+  CriptomonedaIziCoin.vcxproj -> C:\Users\SEBASTIAN\Desktop\GitProyect\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.pdb (Partial PDB)

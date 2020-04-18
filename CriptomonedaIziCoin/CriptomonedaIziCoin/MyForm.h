@@ -4,6 +4,7 @@ using namespace std;
 #include "Sha256.h"
 #include "Usuario.h"
 #include "RedUsuarios.h"
+#include "Conector.h"
 #include "PerfilUsuario.h"
 namespace CriptomonedaIziCoin {
 

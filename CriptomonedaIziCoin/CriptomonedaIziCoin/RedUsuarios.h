@@ -1,13 +1,21 @@
-#ifndef REDUSUARIOS_H_
-#define REDUSUARIOS_H_
-
 class RedUsuarios{
 	private:
 		vector<Usuario>arrUsers;
 	public:
 		RedUsuarios();
-		~RedUsuarios();
 		void addUser(Usuario user);
-
+		void Tranferir(Transaccion* tran);
 };
-#endif
+
+void RedUsuarios::addUser(Usuario user) {
+	arrUsers.push_back(user);
+}
+
+void RedUsuarios::Tranferir(Transaccion* tran) {
+
+	for (int i = 0; i < arrUsers.size();++i) {
+		if (tran->gethash().compare(arrUsers[i].getBilletera()->HashCode)==0) {
+			arrUsers[i].getBilletera()->RecibeUnaTransaccion(tran);
+		}
+	}
+}

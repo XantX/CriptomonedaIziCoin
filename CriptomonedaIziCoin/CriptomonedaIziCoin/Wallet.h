@@ -4,6 +4,7 @@
 class Wallet {
 	private:
 		double IziCoins;
+		Transaccion *nueva;
 	public:
 		string HashCode;
 
@@ -12,21 +13,17 @@ class Wallet {
 			HashCode = SHA256::cifrar(correo + contraseña);
 			
 		}
-		~Wallet();
-
 		void setIzicoins(double Coins) {
 			IziCoins = IziCoins + Coins;
 		}
 		void GenerarTran(double IziCoins, string destino);
-
-		void ReciveUnaTransaccion(Transaccion &Recivido);
-		
-
+		Transaccion* getTransac();
+		void RecibeUnaTransaccion(Transaccion *Recivido);
 };
 void Wallet::GenerarTran(double Izicoins, string destino){
-	//Transaccion tran(Izicoins, destino);
+	nueva = new Transaccion(Izicoins, destino);
 }
-
-void Wallet::ReciveUnaTransaccion(Transaccion &Recivido) {
-	setIzicoins(Recivido.getIzicoins());
+Transaccion* Wallet::getTransac() { return nueva; }
+void Wallet::RecibeUnaTransaccion(Transaccion *Recivido) {
+	setIzicoins(Recivido->getIzicoins());
 }
