@@ -1,5 +1,6 @@
 #pragma once
 using namespace std;
+#include "Usuario.h"
 #include "RedUsuarios.h"
 #include "PerfilUsuario.h"
 namespace CriptomonedaIziCoin {

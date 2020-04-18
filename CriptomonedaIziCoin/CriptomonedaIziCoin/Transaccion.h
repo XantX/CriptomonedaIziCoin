@@ -1,8 +1,11 @@
 #pragma once
 class Transaccion {
 	private:
-		string Cprivate;
+		string hashCodeDestino;
+		double iziCions;
 	public:
-		string Cpublic;
-		long TransaccionCant;
+		Transaccion(double izicoins, string hashCode);
+		~Transaccion();
+		string gethash() {return hashCodeDestino;}
+		double getIzicoins() { return iziCions; }
 };
