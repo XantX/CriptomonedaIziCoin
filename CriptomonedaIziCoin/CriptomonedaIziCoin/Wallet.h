@@ -21,7 +21,7 @@ class Wallet {
 		void RecibeUnaTransaccion(Transaccion *Recivido);
 };
 void Wallet::GenerarTran(double Izicoins, string destino){
-	nueva = new Transaccion(Izicoins, destino);
+	nueva = new Transaccion(Izicoins, destino, HashCode);
 }
 Transaccion* Wallet::getTransac() { return nueva; }
 void Wallet::RecibeUnaTransaccion(Transaccion *Recivido) {
