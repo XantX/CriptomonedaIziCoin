@@ -1,6 +1,6 @@
 
 #include "Transaccion.h"
-//#include "Block.h"
+
 class Wallet {
 	private:
 		double IziCoins;

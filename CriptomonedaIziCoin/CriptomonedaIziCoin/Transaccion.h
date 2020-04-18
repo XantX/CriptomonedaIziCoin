@@ -10,7 +10,7 @@ class Transaccion {
 			this->hashCodeDestino = hashCode;
 			this->hashCodeRemitente = hashCodeRemitente;
 		}
-		string gethash() {return hashCodeDestino;}
-		double getIzicoins() { return iziCions; }
-		string getHashRemitente() { return hashCodeRemitente; }
+		string gethashDestino() {return hashCodeDestino;}
+		double getIzicoins() { return iziCions;}
+		string getHashRemitente() { return hashCodeRemitente;}
 };

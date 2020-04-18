@@ -5,6 +5,8 @@ using namespace std;
 #include "Usuario.h"
 #include "RedUsuarios.h"
 #include "Conector.h"
+#include "Block.h"
+#include "BlockChain.h"
 #include "PerfilUsuario.h"
 namespace CriptomonedaIziCoin {
 
