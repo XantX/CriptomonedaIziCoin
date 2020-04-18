@@ -1,5 +1,4 @@
-#pragma once
-#include <fstream>
+
 #include "Wallet.h"
 class Usuario {
 private:

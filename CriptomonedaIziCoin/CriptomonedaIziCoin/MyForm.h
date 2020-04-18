@@ -1,5 +1,7 @@
 #pragma once
 using namespace std;
+#include <string>
+#include "Sha256.h"
 #include "Usuario.h"
 #include "RedUsuarios.h"
 #include "PerfilUsuario.h"
