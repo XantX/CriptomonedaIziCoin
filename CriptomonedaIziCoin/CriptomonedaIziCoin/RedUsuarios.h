@@ -2,9 +2,10 @@ class RedUsuarios{
 	private:
 		vector<Usuario>arrUsers;
 	public:
-		RedUsuarios();
+		RedUsuarios(){}
 		void addUser(Usuario user);
 		void Tranferir(Transaccion* tran);
+		vector<Usuario> ArrUsers() { return arrUsers; }
 };
 
 void RedUsuarios::addUser(Usuario user) {

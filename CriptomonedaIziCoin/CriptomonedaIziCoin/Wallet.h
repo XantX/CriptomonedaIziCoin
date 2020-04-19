@@ -16,6 +16,7 @@ class Wallet {
 		void setIzicoins(double Coins) {
 			IziCoins = IziCoins + Coins;
 		}
+		double getIzicoins() { return IziCoins; }
 		void GenerarTran(double IziCoins, string destino);
 		Transaccion* getTransac();
 		void RecibeUnaTransaccion(Transaccion *Recivido);

@@ -8,6 +8,13 @@ using namespace std;
 #include "Block.h"
 #include "BlockChain.h"
 #include "PerfilUsuario.h"
+#include "PersistenciaUsuarios.h"
+
+RedUsuarios RedUsuario;
+Usuario User1("Cotatinopla", "Peitior");
+Conector ConectorMestro;
+CadenaDeBloques BlockChain;
+Block Bloque;
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -29,13 +36,13 @@ namespace CriptomonedaIziCoin {
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
-			
 			//
 		}
 
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
+		
 		/// </summary>
 		~MyForm()
 		{
@@ -143,7 +150,6 @@ namespace CriptomonedaIziCoin {
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		PerfilUsuario^ UsuarioForm = gcnew PerfilUsuario();
 		UsuarioForm->Show();
-		
 	}
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	}

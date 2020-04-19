@@ -4,8 +4,9 @@ class Block {
 	private:
 		ofstream Bloque;
 	public:
-		Block();
+		Block(){}
 		void crearBloque(Transaccion *trn, string Bloqueanterior, string nombreBlock);
+		void crearPrimerBloque(Transaccion *trn, string nombreBlock);
 
 };
 
@@ -21,5 +22,16 @@ void Block::crearBloque(Transaccion *trn, string Blockanterior, string nombreBlo
 		Bloque << "Cantidad," << trn->getIzicoins()<<endl;
 	}
 	Bloque.close();
-
+}
+void Block::crearPrimerBloque(Transaccion *trn, string nombreBlock) {
+	Bloque.open(nombreBlock, ios::out);
+	if (Bloque.fail()) {
+		//Mensaje de error
+	}
+	else {
+		Bloque << "Destino," << trn->gethashDestino() << endl;
+		Bloque << "Remitente," << trn->getHashRemitente() << endl;
+		Bloque << "Cantidad," << trn->getIzicoins() << endl;
+	}
+	Bloque.close();
 }
