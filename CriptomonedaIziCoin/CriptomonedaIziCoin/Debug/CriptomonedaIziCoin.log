@@ -16,7 +16,8 @@ c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\Sh
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(126): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(127): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(128): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
-c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RedUsuarios.h(16): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RedUsuarios.h(17): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\PersistenciaUsuarios.h(17): warning C4018: '<': no coinciden signed/unsigned
   MyForm.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
   CriptomonedaIziCoin.vcxproj -> C:\Users\SEBASTIAN\Desktop\GitProyect\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.exe
   CriptomonedaIziCoin.vcxproj -> C:\Users\SEBASTIAN\Desktop\GitProyect\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.pdb (Partial PDB)

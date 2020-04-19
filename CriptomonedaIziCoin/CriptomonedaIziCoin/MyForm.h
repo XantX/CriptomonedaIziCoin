@@ -23,6 +23,7 @@ namespace CriptomonedaIziCoin {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	//using namespace System::Threading::Tasks;
 	
 	/// <summary>
 	/// Resumen de MyForm
@@ -56,6 +57,8 @@ namespace CriptomonedaIziCoin {
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
+
+
 	protected:
 
 	private:
@@ -150,6 +153,8 @@ namespace CriptomonedaIziCoin {
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		PerfilUsuario^ UsuarioForm = gcnew PerfilUsuario();
 		UsuarioForm->Show();
+		
+		
 	}
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -157,5 +162,6 @@ namespace CriptomonedaIziCoin {
 	}
 private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 }
+
 };
 }
