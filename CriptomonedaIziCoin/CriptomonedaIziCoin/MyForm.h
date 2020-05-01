@@ -91,7 +91,7 @@ namespace CriptomonedaIziCoin {
 			// button1
 			// 
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button1->Location = System::Drawing::Point(195, 334);
+			this->button1->Location = System::Drawing::Point(196, 355);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(340, 23);
 			this->button1->TabIndex = 0;
@@ -120,7 +120,7 @@ namespace CriptomonedaIziCoin {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(318, 150);
+			this->label1->Location = System::Drawing::Point(319, 165);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(93, 13);
 			this->label1->TabIndex = 3;
@@ -130,7 +130,7 @@ namespace CriptomonedaIziCoin {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(331, 243);
+			this->label2->Location = System::Drawing::Point(331, 253);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(61, 13);
 			this->label2->TabIndex = 4;
