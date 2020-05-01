@@ -13,6 +13,9 @@ RedUsuarios NuevaRed;
 Usuario Usuario1("pepito", "Contrasena");
 Usuario Usuario2("MAurico", "Lupita");
 Usuario Usuario3("Lorena", "Tono");
+Usuario Usuario4("Senor", "Correr");
+Usuario Usuario5("Lupita", "hablar");
+
 #include "PerfilUsuario.h"
 namespace CriptomonedaIziCoin {
 
@@ -22,7 +25,6 @@ namespace CriptomonedaIziCoin {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
 	
 	//using namespace System::Threading::Tasks;
 	
@@ -58,6 +60,7 @@ namespace CriptomonedaIziCoin {
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
 
 
 	protected:
@@ -75,11 +78,14 @@ namespace CriptomonedaIziCoin {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -130,6 +136,16 @@ namespace CriptomonedaIziCoin {
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Contraseña";
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(277, 12);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(170, 125);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 5;
+			this->pictureBox1->TabStop = false;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -138,6 +154,7 @@ namespace CriptomonedaIziCoin {
 			this->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(717, 457);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox2);
@@ -147,6 +164,7 @@ namespace CriptomonedaIziCoin {
 			this->Name = L"MyForm";
 			this->ShowIcon = false;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -156,17 +174,30 @@ namespace CriptomonedaIziCoin {
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		PerfilUsuario^ UsuarioForm = gcnew PerfilUsuario();
 		String^ Core = gcnew String(textBox1->Text->ToString());
-		UsuarioForm->Corre = Core;
 		String^ Con = gcnew String(textBox2->Text->ToString());
-		UsuarioForm->Contra = Con;
-		UsuarioForm->Show();
-		
+		string CoreIf;
+		string ConIf;
+		MarshalString(Core, CoreIf);
+		MarshalString(Con, ConIf);
+		if (iniciador(CoreIf, ConIf, NuevaRed)) {
+			UsuarioForm->Corre = Core;
+			UsuarioForm->Contra = Con;
+			UsuarioForm->Show();
+		}
+		else {
+			MessageBox::Show("No exite ese usuario");
+			textBox1->Clear();
+			textBox2->Clear();
+		}
+				
 		
 	}
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 		NuevaRed.addUser(Usuario1);
 		NuevaRed.addUser(Usuario2);
 		NuevaRed.addUser(Usuario3);
+		NuevaRed.addUser(Usuario4);
+		NuevaRed.addUser(Usuario5);
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}

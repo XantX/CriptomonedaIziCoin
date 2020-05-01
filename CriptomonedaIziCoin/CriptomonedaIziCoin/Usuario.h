@@ -9,7 +9,7 @@ private:
 public:
 	
 	Usuario(string Correo, string Contraseña) {
-		wallet = new Wallet( Contraseña);
+		wallet = new Wallet( Correo ,Contraseña);
 		this->Correo = Correo;
 		this->Contraseña = Contraseña;
 	}

@@ -8,9 +8,9 @@ class Wallet {
 	public:
 		string HashCode;
 
-		Wallet(string contraseña) {
+		Wallet(string correo, string contraseña) {
 			IziCoins = 0;
-			HashCode = SHA256::cifrar(contraseña);
+			HashCode = SHA256::cifrar(correo + contraseña);
 			
 		}
 		void setIzicoins(double Coins) {
