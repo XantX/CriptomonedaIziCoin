@@ -9,3 +9,4 @@ void Conector::ConectarRedToUser(RedUsuarios Red, Usuario User) {
 
 	Red.Tranferir(User.getBilletera()->getTransac());
 }
+

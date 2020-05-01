@@ -140,6 +140,7 @@
     <ClInclude Include="BlockChain.h" />
     <ClInclude Include="Conector.h" />
     <ClInclude Include="InfInt.h" />
+    <ClInclude Include="IniciadorDeSesion.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

@@ -7,14 +7,13 @@ using namespace std;
 #include "Conector.h"
 #include "Block.h"
 #include "BlockChain.h"
-#include "PerfilUsuario.h"
 #include "PersistenciaUsuarios.h"
-
-RedUsuarios RedUsuario;
-Usuario User1("Cotatinopla", "Peitior");
-Conector ConectorMestro;
-CadenaDeBloques BlockChain;
-Block Bloque;
+#include "IniciadorDeSesion.h"
+RedUsuarios NuevaRed;
+Usuario Usuario1("pepito", "Contrasena");
+Usuario Usuario2("MAurico", "Lupita");
+Usuario Usuario3("Lorena", "Tono");
+#include "PerfilUsuario.h"
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -23,6 +22,8 @@ namespace CriptomonedaIziCoin {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
+	
 	//using namespace System::Threading::Tasks;
 	
 	/// <summary>
@@ -99,6 +100,7 @@ namespace CriptomonedaIziCoin {
 			this->textBox1->Size = System::Drawing::Size(205, 20);
 			this->textBox1->TabIndex = 1;
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
@@ -149,19 +151,31 @@ namespace CriptomonedaIziCoin {
 			this->PerformLayout();
 
 		}
+		
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		PerfilUsuario^ UsuarioForm = gcnew PerfilUsuario();
+		String^ Core = gcnew String(textBox1->Text->ToString());
+		UsuarioForm->Corre = Core;
+		String^ Con = gcnew String(textBox2->Text->ToString());
+		UsuarioForm->Contra = Con;
 		UsuarioForm->Show();
 		
 		
 	}
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+		NuevaRed.addUser(Usuario1);
+		NuevaRed.addUser(Usuario2);
+		NuevaRed.addUser(Usuario3);
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 
+private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	
+}
 };
 }
+

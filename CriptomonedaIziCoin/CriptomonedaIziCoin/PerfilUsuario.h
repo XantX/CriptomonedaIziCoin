@@ -1,5 +1,4 @@
 #pragma once
-
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -8,6 +7,14 @@ namespace CriptomonedaIziCoin {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	void MarshalString(String ^ s, string & os)
+	{
+		using namespace Runtime::InteropServices;
+		const char* chars =
+			(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
+		os = chars;
+		Marshal::FreeHGlobal(IntPtr((void*)chars));
+	}
 
 	/// <summary>
 	/// Resumen de PerfilUsuario
@@ -15,6 +22,8 @@ namespace CriptomonedaIziCoin {
 	public ref class PerfilUsuario : public System::Windows::Forms::Form
 	{
 	public:
+		String^ Corre = gcnew String(" ");
+		String^ Contra = gcnew String(" ");
 		PerfilUsuario(void)
 		{
 			InitializeComponent();
@@ -22,8 +31,9 @@ namespace CriptomonedaIziCoin {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-
+		
 	protected:
+
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
@@ -35,7 +45,8 @@ namespace CriptomonedaIziCoin {
 			}
 		}
 	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  LabelCodHash;
+
 
 	private: System::Windows::Forms::Label^  label2;
 
@@ -67,7 +78,7 @@ namespace CriptomonedaIziCoin {
 		void InitializeComponent(void)
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->LabelCodHash = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->listView1 = (gcnew System::Windows::Forms::ListView());
 			this->Transaccion_titulo = (gcnew System::Windows::Forms::Label());
@@ -92,15 +103,15 @@ namespace CriptomonedaIziCoin {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &PerfilUsuario::button1_Click);
 			// 
-			// label1
+			// LabelCodHash
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(182, 61);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(385, 13);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"58a01e1e4103f19c6fb271465e7c280b2bb6b44e0ab43e607bd520e5b3a4a1b1";
-			this->label1->Click += gcnew System::EventHandler(this, &PerfilUsuario::label1_Click);
+			this->LabelCodHash->AutoSize = true;
+			this->LabelCodHash->Location = System::Drawing::Point(182, 61);
+			this->LabelCodHash->Name = L"LabelCodHash";
+			this->LabelCodHash->Size = System::Drawing::Size(385, 13);
+			this->LabelCodHash->TabIndex = 1;
+			this->LabelCodHash->Text = L"58a01e1e4103f19c6fb271465e7c280b2bb6b44e0ab43e607bd520e5b3a4a1b1";
+			this->LabelCodHash->Click += gcnew System::EventHandler(this, &PerfilUsuario::label1_Click);
 			// 
 			// label2
 			// 
@@ -224,7 +235,7 @@ namespace CriptomonedaIziCoin {
 			this->Controls->Add(this->Transaccion_titulo);
 			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->LabelCodHash);
 			this->Controls->Add(this->button1);
 			this->Name = L"PerfilUsuario";
 			this->Text = L"PerfilUsuario";
@@ -236,6 +247,12 @@ namespace CriptomonedaIziCoin {
 		}
 #pragma endregion
 	private: System::Void PerfilUsuario_Load(System::Object^  sender, System::EventArgs^  e) {
+		
+		string Contraseña;
+		MarshalString(Contra, Contraseña);
+		Usuario nuevo = ConectarConRed(Contraseña, NuevaRed);
+		String^ Hash = gcnew String(nuevo.getBilletera()->HashCode.c_str()); 
+		LabelCodHash->Text = Hash;// para el Hash de el usuario
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 
