@@ -152,6 +152,7 @@
     <ClInclude Include="RSA.h" />
     <ClInclude Include="Sha256.h" />
     <ClInclude Include="Transaccion.h" />
+    <ClInclude Include="Transferir.h" />
     <ClInclude Include="Usuario.h" />
     <ClInclude Include="Wallet.h" />
   </ItemGroup>
@@ -162,6 +163,7 @@
     <EmbeddedResource Include="PerfilUsuario.resx">
       <DependentUpon>PerfilUsuario.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transferir.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

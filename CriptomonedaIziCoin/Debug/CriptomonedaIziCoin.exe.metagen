@@ -1,5 +1,6 @@
   CriptomonedaIziCoin.MyForm.resources - Embedded, ContainedInManifestFile, 
   CriptomonedaIziCoin.PerfilUsuario.resources - Embedded, ContainedInManifestFile, 
+  CriptomonedaIziCoin.Transferir.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly CriptomonedaIziCoin, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
 	hash=SHA1, flags=PublicKey
@@ -15,6 +16,15 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class CriptomonedaIziCoin.Transferir: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.TextBox textBox1 : Public
+    System.Windows.Forms.TextBox textBox2 : Public
+    System.Windows.Forms.TextBox textBox3 : Public
+    System.Windows.Forms.Button button1 : Public
+    System.Windows.Forms.Button button2 : Public
 Class CriptomonedaIziCoin.PerfilUsuario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

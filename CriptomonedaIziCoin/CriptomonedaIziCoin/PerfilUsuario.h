@@ -1,4 +1,5 @@
 #pragma once
+#include"Transferir.h"
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -44,7 +45,9 @@ namespace CriptomonedaIziCoin {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  BotonTranferir;
+	protected:
+
 	private: System::Windows::Forms::Label^  LabelCodHash;
 
 
@@ -79,7 +82,7 @@ namespace CriptomonedaIziCoin {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->BotonTranferir = (gcnew System::Windows::Forms::Button());
 			this->LabelCodHash = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->listView1 = (gcnew System::Windows::Forms::ListView());
@@ -95,15 +98,15 @@ namespace CriptomonedaIziCoin {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// button1
+			// BotonTranferir
 			// 
-			this->button1->Location = System::Drawing::Point(541, 233);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(179, 23);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"Tranferir";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &PerfilUsuario::button1_Click);
+			this->BotonTranferir->Location = System::Drawing::Point(541, 233);
+			this->BotonTranferir->Name = L"BotonTranferir";
+			this->BotonTranferir->Size = System::Drawing::Size(179, 23);
+			this->BotonTranferir->TabIndex = 0;
+			this->BotonTranferir->Text = L"Tranferir";
+			this->BotonTranferir->UseVisualStyleBackColor = true;
+			this->BotonTranferir->Click += gcnew System::EventHandler(this, &PerfilUsuario::button1_Click);
 			// 
 			// LabelCodHash
 			// 
@@ -240,7 +243,7 @@ namespace CriptomonedaIziCoin {
 			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->LabelCodHash);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->BotonTranferir);
 			this->Name = L"PerfilUsuario";
 			this->Text = L"PerfilUsuario";
 			this->Load += gcnew System::EventHandler(this, &PerfilUsuario::PerfilUsuario_Load);
@@ -265,7 +268,8 @@ namespace CriptomonedaIziCoin {
 		labelCoinDolar->Text = IziDolar;
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-
+		Transferir^ FormTranferir = gcnew Transferir();
+		FormTranferir->Show();
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}

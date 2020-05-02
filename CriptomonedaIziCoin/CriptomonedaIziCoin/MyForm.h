@@ -17,6 +17,7 @@ Usuario Usuario4("Senor", "Correr");
 Usuario Usuario5("Lupita", "hablar");
 
 #include "PerfilUsuario.h"
+
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
