@@ -5,9 +5,6 @@ using namespace std;
 #include "Usuario.h"
 #include "TranferenciasPanel.h"
 #include "RedUsuarios.h"
-#include "Conector.h"
-#include "Block.h"
-#include "BlockChain.h"
 #include "IniciadorDeSesion.h"
 RedUsuarios NuevaRed;
 #include "PerfilUsuario.h"
@@ -34,8 +31,10 @@ namespace CriptomonedaIziCoin {
 		Usuario *Usuario3 = new Usuario("Lorena", "Tono");
 		Usuario *Usuario4 = new Usuario("Senor", "Correr");
 		Usuario *Usuario5 = new Usuario("Lupita", "hablar");
-		PerfilUsuario^ perfil = gcnew PerfilUsuario;
+		
+		
 
+		
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -180,8 +179,10 @@ namespace CriptomonedaIziCoin {
 		string ConIf;
 		MarshalString(Core, CoreIf);
 		MarshalString(Con, ConIf);
+		
 		//Busca en la red al ususario
 		if (iniciador(CoreIf, ConIf, NuevaRed)) {//si lo encuentra lo manda al perfil
+			PerfilUsuario^ perfil = gcnew PerfilUsuario;
 			perfil->Corre = Core;
 			perfil->Contra = Con;
 			perfil->Show();
@@ -201,6 +202,8 @@ namespace CriptomonedaIziCoin {
 		NuevaRed.addUser(Usuario3);
 		NuevaRed.addUser(Usuario4);
 		NuevaRed.addUser(Usuario5);
+
+		
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}

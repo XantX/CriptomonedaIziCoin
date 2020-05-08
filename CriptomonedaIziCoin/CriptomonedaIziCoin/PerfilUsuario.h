@@ -24,7 +24,8 @@ namespace CriptomonedaIziCoin {
 	{
 	public:
 		Usuario *nuevo;
-		TranferenciasPanel ^ Panel = gcnew TranferenciasPanel;
+		
+		
 		String^ Corre = gcnew String(" ");
 	private: System::Windows::Forms::TextBox^  TexboxHash;
 	public:
@@ -277,12 +278,10 @@ namespace CriptomonedaIziCoin {
 		
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		
-		
-		Panel->Show();
-		
-		
-		
+		TranferenciasPanel^Pnle = gcnew TranferenciasPanel;
+		Pnle->billetera = nuevo->getBilletera();
+		Pnle->Show();
+
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}

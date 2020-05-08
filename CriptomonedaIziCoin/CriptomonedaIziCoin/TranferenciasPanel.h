@@ -16,8 +16,8 @@ namespace CriptomonedaIziCoin {
 	public ref class TranferenciasPanel : public System::Windows::Forms::Form
 	{
 	public:
-
-		Usuario* user;
+		Wallet*billetera;
+		
 		TranferenciasPanel(void)
 		{
 			InitializeComponent();
@@ -196,6 +196,7 @@ namespace CriptomonedaIziCoin {
 			this->CancelarButton->TabIndex = 10;
 			this->CancelarButton->Text = L"Cancelar";
 			this->CancelarButton->UseVisualStyleBackColor = true;
+			this->CancelarButton->Click += gcnew System::EventHandler(this, &TranferenciasPanel::CancelarButton_Click);
 			// 
 			// TranferirButton
 			// 
@@ -278,11 +279,17 @@ private: System::Void TranferirButton_Click(System::Object^  sender, System::Eve
 	
 	if (textBoxCOins->Text == "" || TexboxHashReceptor->Text == "") {
 		MessageBox::Show("No ingreso los datos necesario");
+	}
+	else {
 
 	}
+	
 }
 private: System::Void TranferenciasPanel_Load(System::Object^  sender, System::EventArgs^  e) {
-	//IzicoinsEnBilletera->Text = user->getBilletera()->getIzicoins().ToString();
+	IzicoinsEnBilletera->Text = billetera->getIzicoins().ToString();
+}
+private: System::Void CancelarButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	this->Close();
 }
 };
 }
