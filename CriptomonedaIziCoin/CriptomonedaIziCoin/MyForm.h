@@ -3,21 +3,14 @@ using namespace std;
 #include <string>
 #include "Sha256.h"
 #include "Usuario.h"
+#include "TranferenciasPanel.h"
 #include "RedUsuarios.h"
 #include "Conector.h"
 #include "Block.h"
 #include "BlockChain.h"
-#include "PersistenciaUsuarios.h"
 #include "IniciadorDeSesion.h"
 RedUsuarios NuevaRed;
-Usuario Usuario1("pepito", "Contrasena");
-Usuario Usuario2("MAurico", "Lupita");
-Usuario Usuario3("Lorena", "Tono");
-Usuario Usuario4("Senor", "Correr");
-Usuario Usuario5("Lupita", "hablar");
-
 #include "PerfilUsuario.h"
-
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -36,6 +29,13 @@ namespace CriptomonedaIziCoin {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+		Usuario *Usuario1 = new Usuario("pepito", "Contrasena");
+		Usuario *Usuario2 = new Usuario("MAurico", "Lupita");
+		Usuario *Usuario3 = new Usuario("Lorena", "Tono");
+		Usuario *Usuario4 = new Usuario("Senor", "Correr");
+		Usuario *Usuario5 = new Usuario("Lupita", "hablar");
+		PerfilUsuario^ perfil = gcnew PerfilUsuario;
+
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -173,19 +173,20 @@ namespace CriptomonedaIziCoin {
 		
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		PerfilUsuario^ UsuarioForm = gcnew PerfilUsuario();
+		//Se convierten los nombre ingresados en las casillas
 		String^ Core = gcnew String(textBox1->Text->ToString());
 		String^ Con = gcnew String(textBox2->Text->ToString());
 		string CoreIf;
 		string ConIf;
 		MarshalString(Core, CoreIf);
 		MarshalString(Con, ConIf);
-		if (iniciador(CoreIf, ConIf, NuevaRed)) {
-			UsuarioForm->Corre = Core;
-			UsuarioForm->Contra = Con;
-			UsuarioForm->Show();
+		//Busca en la red al ususario
+		if (iniciador(CoreIf, ConIf, NuevaRed)) {//si lo encuentra lo manda al perfil
+			perfil->Corre = Core;
+			perfil->Contra = Con;
+			perfil->Show();
 		}
-		else {
+		else {//si no lo encuentra muestra el error
 			MessageBox::Show("No exite ese usuario");
 			textBox1->Clear();
 			textBox2->Clear();
@@ -194,6 +195,7 @@ namespace CriptomonedaIziCoin {
 		
 	}
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+		//añade usuarios a la red
 		NuevaRed.addUser(Usuario1);
 		NuevaRed.addUser(Usuario2);
 		NuevaRed.addUser(Usuario3);

@@ -1,5 +1,5 @@
 #pragma once
-#include"Transferir.h"
+
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -23,7 +23,11 @@ namespace CriptomonedaIziCoin {
 	public ref class PerfilUsuario : public System::Windows::Forms::Form
 	{
 	public:
+		Usuario *nuevo;
+		TranferenciasPanel ^ Panel = gcnew TranferenciasPanel;
 		String^ Corre = gcnew String(" ");
+	private: System::Windows::Forms::TextBox^  TexboxHash;
+	public:
 		String^ Contra = gcnew String(" ");
 		PerfilUsuario(void)
 		{
@@ -48,7 +52,7 @@ namespace CriptomonedaIziCoin {
 	private: System::Windows::Forms::Button^  BotonTranferir;
 	protected:
 
-	private: System::Windows::Forms::Label^  LabelCodHash;
+
 
 
 	private: System::Windows::Forms::Label^  label2;
@@ -64,7 +68,8 @@ namespace CriptomonedaIziCoin {
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
-	private: System::Windows::Forms::Button^  button4;
+	private: System::Windows::Forms::Button^  BotonDeCopiado;
+
 
 
 	protected:
@@ -83,7 +88,6 @@ namespace CriptomonedaIziCoin {
 		void InitializeComponent(void)
 		{
 			this->BotonTranferir = (gcnew System::Windows::Forms::Button());
-			this->LabelCodHash = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->listView1 = (gcnew System::Windows::Forms::ListView());
 			this->Transaccion_titulo = (gcnew System::Windows::Forms::Label());
@@ -94,7 +98,8 @@ namespace CriptomonedaIziCoin {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->BotonDeCopiado = (gcnew System::Windows::Forms::Button());
+			this->TexboxHash = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -107,16 +112,6 @@ namespace CriptomonedaIziCoin {
 			this->BotonTranferir->Text = L"Tranferir";
 			this->BotonTranferir->UseVisualStyleBackColor = true;
 			this->BotonTranferir->Click += gcnew System::EventHandler(this, &PerfilUsuario::button1_Click);
-			// 
-			// LabelCodHash
-			// 
-			this->LabelCodHash->AutoSize = true;
-			this->LabelCodHash->Location = System::Drawing::Point(182, 61);
-			this->LabelCodHash->Name = L"LabelCodHash";
-			this->LabelCodHash->Size = System::Drawing::Size(385, 13);
-			this->LabelCodHash->TabIndex = 1;
-			this->LabelCodHash->Text = L"58a01e1e4103f19c6fb271465e7c280b2bb6b44e0ab43e607bd520e5b3a4a1b1";
-			this->LabelCodHash->Click += gcnew System::EventHandler(this, &PerfilUsuario::label1_Click);
 			// 
 			// label2
 			// 
@@ -216,22 +211,31 @@ namespace CriptomonedaIziCoin {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &PerfilUsuario::button3_Click);
 			// 
-			// button4
+			// BotonDeCopiado
 			// 
-			this->button4->Location = System::Drawing::Point(204, 97);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(75, 23);
-			this->button4->TabIndex = 15;
-			this->button4->Text = L"Copiar";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &PerfilUsuario::button4_Click);
+			this->BotonDeCopiado->Location = System::Drawing::Point(204, 97);
+			this->BotonDeCopiado->Name = L"BotonDeCopiado";
+			this->BotonDeCopiado->Size = System::Drawing::Size(75, 23);
+			this->BotonDeCopiado->TabIndex = 15;
+			this->BotonDeCopiado->Text = L"Copiar";
+			this->BotonDeCopiado->UseVisualStyleBackColor = true;
+			this->BotonDeCopiado->Click += gcnew System::EventHandler(this, &PerfilUsuario::button4_Click);
+			// 
+			// TexboxHash
+			// 
+			this->TexboxHash->Location = System::Drawing::Point(185, 61);
+			this->TexboxHash->Name = L"TexboxHash";
+			this->TexboxHash->Size = System::Drawing::Size(382, 20);
+			this->TexboxHash->TabIndex = 16;
+			this->TexboxHash->Text = L"CodigoHash";
 			// 
 			// PerfilUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(794, 493);
-			this->Controls->Add(this->button4);
+			this->Controls->Add(this->TexboxHash);
+			this->Controls->Add(this->BotonDeCopiado);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->pictureBox1);
@@ -242,7 +246,6 @@ namespace CriptomonedaIziCoin {
 			this->Controls->Add(this->Transaccion_titulo);
 			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->LabelCodHash);
 			this->Controls->Add(this->BotonTranferir);
 			this->Name = L"PerfilUsuario";
 			this->Text = L"PerfilUsuario";
@@ -256,20 +259,30 @@ namespace CriptomonedaIziCoin {
 	private: System::Void PerfilUsuario_Load(System::Object^  sender, System::EventArgs^  e) {
 		string correo;
 		string Contraseña;
+		//Convierte Los String^ en string para usarlos en clases
 		MarshalString(Corre, correo);
 		MarshalString(Contra, Contraseña);
-		Usuario nuevo = ConectarConRed(correo, Contraseña, NuevaRed);
-		String^ Hash = gcnew String(nuevo.getBilletera()->HashCode.c_str()); 
-		LabelCodHash->Text = Hash;// para el Hash de el usuario
-		String^ IziCoins = gcnew String(nuevo.getBilletera()->getIzicoins().ToString());
+		// Busca al usuario ingresado en la red de usuarios
+		nuevo = ConectarConRed(correo, Contraseña, NuevaRed);
+		String^ Hash = gcnew String(nuevo->getBilletera()->HashCode.c_str());
+		//muestra el hash de la billetera del usuario logeado
+		TexboxHash->Text = Hash;//hash para que se le transfieran monedas
+		//obtiene las monedas de la billetera de usuario
+		String^ IziCoins = gcnew String(nuevo->getBilletera()->getIzicoins().ToString());
 		LabalCantIziCoins->Text = IziCoins;
-		double coinzDolar = nuevo.getBilletera()->getIzicoins() * 3.10;
+		//Convierte las monedas a dolares 
+		double coinzDolar = nuevo->getBilletera()->getIzicoins() * 3.10;
 		String^ IziDolar = gcnew String(coinzDolar.ToString());
 		labelCoinDolar->Text = IziDolar;
+		
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		Transferir^ FormTranferir = gcnew Transferir();
-		FormTranferir->Show();
+		
+		
+		Panel->Show();
+		
+		
+		
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -283,7 +296,8 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	this->Close();
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-
+	TexboxHash->SelectAll();
+	TexboxHash->Copy();
 }
 };
 }

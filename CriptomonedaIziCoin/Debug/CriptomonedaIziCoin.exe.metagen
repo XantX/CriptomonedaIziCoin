@@ -1,5 +1,6 @@
   CriptomonedaIziCoin.MyForm.resources - Embedded, ContainedInManifestFile, 
   CriptomonedaIziCoin.PerfilUsuario.resources - Embedded, ContainedInManifestFile, 
+  CriptomonedaIziCoin.TranferenciasPanel.resources - Embedded, ContainedInManifestFile, 
   CriptomonedaIziCoin.Transferir.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly CriptomonedaIziCoin, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
@@ -16,21 +17,23 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Class CriptomonedaIziCoin.Transferir: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    System.Windows.Forms.TextBox textBox1 : Public
-    System.Windows.Forms.TextBox textBox2 : Public
-    System.Windows.Forms.TextBox textBox3 : Public
-    System.Windows.Forms.Button button1 : Public
-    System.Windows.Forms.Button button2 : Public
 Class CriptomonedaIziCoin.PerfilUsuario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
+    Usuario* nuevo : Public
     System.String Corre : Public
     System.String Contra : Public
 Class CriptomonedaIziCoin.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Usuario* Usuario1 : Public
+    Usuario* Usuario2 : Public
+    Usuario* Usuario3 : Public
+    Usuario* Usuario4 : Public
+    Usuario* Usuario5 : Public
+    CriptomonedaIziCoin.PerfilUsuario perfil : Public
+Class CriptomonedaIziCoin.TranferenciasPanel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

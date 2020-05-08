@@ -1,4 +1,4 @@
-
+#pragma once
 #include "Transaccion.h"
 
 class Wallet {

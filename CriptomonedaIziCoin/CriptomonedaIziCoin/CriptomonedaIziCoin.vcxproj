@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PerfilUsuario.cpp" />
+    <ClCompile Include="TranferenciasPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
@@ -151,9 +152,13 @@
     <ClInclude Include="RedUsuarios.h" />
     <ClInclude Include="RSA.h" />
     <ClInclude Include="Sha256.h" />
+    <ClInclude Include="TranferenciasPanel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Transaccion.h" />
     <ClInclude Include="Transferir.h" />
     <ClInclude Include="Usuario.h" />
+    <ClInclude Include="UsuarioGlobal.h" />
     <ClInclude Include="Wallet.h" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PerfilUsuario.resx">
       <DependentUpon>PerfilUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranferenciasPanel.resx">
+      <DependentUpon>TranferenciasPanel.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transferir.resx" />
   </ItemGroup>
