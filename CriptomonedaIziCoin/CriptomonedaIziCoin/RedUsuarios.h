@@ -1,3 +1,4 @@
+#include "Block.h"
 #ifndef REDUSUARIO_H
 #define REDUSUARIO_H
 class RedUsuarios {
@@ -21,6 +22,7 @@ void RedUsuarios::Tranferir(Transaccion* tran) {
 			arrUsers[i]->getBilletera()->RecibeUnaTransaccion(tran);
 		}
 	}
+
 }
 
 #endif // !REDUSUARIO_H

@@ -7,7 +7,7 @@ private:
 	double iziCions;
 public:
 	Transaccion(double izicoins, string hashCode, string hashCodeRemitente) {
-		this->iziCions = iziCions;
+		this->iziCions = izicoins;
 		this->hashCodeDestino = hashCode;
 		this->hashCodeRemitente = hashCodeRemitente;
 	}

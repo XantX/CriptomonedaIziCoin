@@ -11,7 +11,7 @@ class Block {
 };
 
 void Block::crearBloque(Transaccion *trn, string Blockanterior, string nombreBlock) {
-	Bloque.open(nombreBlock, ios::out);
+	Bloque.open(nombreBlock + ".txt", ios::out);
 	if (Bloque.fail()) {
 		//Mensaje de error
 	}

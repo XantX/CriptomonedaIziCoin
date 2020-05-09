@@ -284,10 +284,10 @@ private: System::Void BotonPegar_Click(System::Object^  sender, System::EventArg
 	TexboxHashReceptor->Paste();
 }
 private: System::Void TranferirButton_Click(System::Object^  sender, System::EventArgs^  e) {
-	string hash;
+	string hashDestino;
 	string iziCoins;
 	MarshalString(textBoxCOins->Text, iziCoins);
-	MarshalString(TexboxHashReceptor->Text, hash);
+	MarshalString(TexboxHashReceptor->Text, hashDestino);
 
 	if (textBoxCOins->Text == "" || TexboxHashReceptor->Text == "") {
 		MessageBox::Show("No ingreso los datos necesario");
@@ -295,15 +295,18 @@ private: System::Void TranferirButton_Click(System::Object^  sender, System::Eve
 	else if(stod(iziCoins) == 0){
 		MessageBox::Show("Tiene que elegir algun monto para enviar");
 		textBoxCOins->Clear();
-	}else if (hash == billetera->HashCode) {
+	}else if (hashDestino == billetera->HashCode) {
 		MessageBox::Show("No es un codigo de receptor valido");
 		TexboxHashReceptor->Clear();
 	}
 	else if(stod(iziCoins) > billetera->getIzicoins()){
 		MessageBox::Show("La cantidad de coins es mayor a su saldo actual");
 		textBoxCOins->Clear();
-	}else if (HashEnRed(NuevaRed, hash)) {
+	}else if (HashEnRed(NuevaRed, hashDestino)) {
 		MessageBox::Show("Se puede transferir");
+		double coins = stod(iziCoins);
+		billetera->GenerarTran(coins, hashDestino);
+		NuevaRed.Tranferir(billetera->getTransac());
 	}
 	else {
 		MessageBox::Show("El hash del receptor no se encuentra en nuestra red");

@@ -264,7 +264,7 @@ namespace CriptomonedaIziCoin {
 		String^ IziCoins = gcnew String(nuevo->getBilletera()->getIzicoins().ToString());
 		LabalCantIziCoins->Text = IziCoins;
 		//Convierte las monedas a dolares 
-		double coinzDolar = nuevo->getBilletera()->getIzicoins() * 3.10;
+		double coinzDolar = nuevo->getBilletera()->getIzicoins() / 3.10;
 		String^ IziDolar = gcnew String(coinzDolar.ToString());
 		labelCoinDolar->Text = IziDolar;
 		
