@@ -303,10 +303,16 @@ private: System::Void TranferirButton_Click(System::Object^  sender, System::Eve
 		MessageBox::Show("La cantidad de coins es mayor a su saldo actual");
 		textBoxCOins->Clear();
 	}else if (HashEnRed(NuevaRed, hashDestino)) {
+		//aqui comienza la transacciones
 		MessageBox::Show("Se puede transferir");
 		double coins = stod(iziCoins);
+		billetera->setIzicoins(-coins);
 		billetera->GenerarTran(coins, hashDestino);
 		NuevaRed.Tranferir(billetera->getTransac());
+		IzicoinsEnBilletera->Text = billetera->getIzicoins().ToString();
+		textBoxCOins->Clear();
+		TexboxHashReceptor->Clear();
+
 	}
 	else {
 		MessageBox::Show("El hash del receptor no se encuentra en nuestra red");

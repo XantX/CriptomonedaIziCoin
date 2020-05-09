@@ -7,6 +7,7 @@ using namespace std;
 #include "IniciadorDeSesion.h"
 RedUsuarios NuevaRed;
 #include "TranferenciasPanel.h"
+
 #include "PerfilUsuario.h"
 namespace CriptomonedaIziCoin {
 
@@ -27,14 +28,11 @@ namespace CriptomonedaIziCoin {
 	{
 	public:
 		Usuario *Usuario1 = new Usuario("pepito", "Contrasena");
-		Usuario *Usuario2 = new Usuario("MAurico", "Lupita");
+		Usuario *Usuario2 = new Usuario("Maurico", "Lupita");
 		Usuario *Usuario3 = new Usuario("Lorena", "Tono");
 		Usuario *Usuario4 = new Usuario("Senor", "Correr");
 		Usuario *Usuario5 = new Usuario("Lupita", "hablar");
-		
-		
 
-		
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -112,6 +110,7 @@ namespace CriptomonedaIziCoin {
 			// 
 			this->textBox2->Location = System::Drawing::Point(257, 279);
 			this->textBox2->Name = L"textBox2";
+			this->textBox2->PasswordChar = '*';
 			this->textBox2->Size = System::Drawing::Size(205, 20);
 			this->textBox2->TabIndex = 2;
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;

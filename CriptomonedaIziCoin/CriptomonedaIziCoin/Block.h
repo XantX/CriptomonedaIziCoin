@@ -23,8 +23,9 @@ void Block::crearBloque(Transaccion *trn, string Blockanterior, string nombreBlo
 	}
 	Bloque.close();
 }
+
 void Block::crearPrimerBloque(Transaccion *trn, string nombreBlock) {
-	Bloque.open(nombreBlock, ios::out);
+	Bloque.open(nombreBlock+".txt", ios::out);
 	if (Bloque.fail()) {
 		//Mensaje de error
 	}
