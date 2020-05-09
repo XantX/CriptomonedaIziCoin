@@ -19,6 +19,7 @@ c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\Sh
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RedUsuarios.h(19): warning C4018: '<': no coinciden signed/unsigned
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\IniciadorDeSesion.h(4): warning C4018: '<': no coinciden signed/unsigned
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\IniciadorDeSesion.h(13): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\IniciadorDeSesion.h(22): warning C4018: '<': no coinciden signed/unsigned
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\iniciadordesesion.h(9): warning C4715: 'ConectarConRed': no todas las rutas de acceso de control devuelven un valor
   MyForm.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
   CriptomonedaIziCoin.vcxproj -> C:\Users\SEBASTIAN\Desktop\GitProyect\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.exe

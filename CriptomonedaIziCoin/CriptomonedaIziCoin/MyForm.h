@@ -3,10 +3,10 @@ using namespace std;
 #include <string>
 #include "Sha256.h"
 #include "Usuario.h"
-#include "TranferenciasPanel.h"
 #include "RedUsuarios.h"
 #include "IniciadorDeSesion.h"
 RedUsuarios NuevaRed;
+#include "TranferenciasPanel.h"
 #include "PerfilUsuario.h"
 namespace CriptomonedaIziCoin {
 

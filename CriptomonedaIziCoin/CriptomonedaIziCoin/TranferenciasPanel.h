@@ -8,7 +8,15 @@ namespace CriptomonedaIziCoin {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	
+	void MarshalString(String ^ s, string & os)
+	{
+		using namespace Runtime::InteropServices;
+		const char* chars =
+			(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
+		os = chars;
+		Marshal::FreeHGlobal(IntPtr((void*)chars));
+	}
+
 
 	/// <summary>
 	/// Resumen de TranferenciasPanel
@@ -276,12 +284,30 @@ private: System::Void BotonPegar_Click(System::Object^  sender, System::EventArg
 	TexboxHashReceptor->Paste();
 }
 private: System::Void TranferirButton_Click(System::Object^  sender, System::EventArgs^  e) {
-	
+	string hash;
+	string iziCoins;
+	MarshalString(textBoxCOins->Text, iziCoins);
+	MarshalString(TexboxHashReceptor->Text, hash);
+
 	if (textBoxCOins->Text == "" || TexboxHashReceptor->Text == "") {
 		MessageBox::Show("No ingreso los datos necesario");
+	}/*buscar el hash*/
+	else if(stod(iziCoins) == 0){
+		MessageBox::Show("Tiene que elegir algun monto para enviar");
+		textBoxCOins->Clear();
+	}else if (hash == billetera->HashCode) {
+		MessageBox::Show("No es un codigo de receptor valido");
+		TexboxHashReceptor->Clear();
+	}
+	else if(stod(iziCoins) > billetera->getIzicoins()){
+		MessageBox::Show("La cantidad de coins es mayor a su saldo actual");
+		textBoxCOins->Clear();
+	}else if (HashEnRed(NuevaRed, hash)) {
+		MessageBox::Show("Se puede transferir");
 	}
 	else {
-
+		MessageBox::Show("El hash del receptor no se encuentra en nuestra red");
+		TexboxHashReceptor->Clear();
 	}
 	
 }

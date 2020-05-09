@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Conector.h"
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -8,15 +8,6 @@ namespace CriptomonedaIziCoin {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	void MarshalString(String ^ s, string & os)
-	{
-		using namespace Runtime::InteropServices;
-		const char* chars =
-			(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
-		os = chars;
-		Marshal::FreeHGlobal(IntPtr((void*)chars));
-	}
-
 	/// <summary>
 	/// Resumen de PerfilUsuario
 	/// </summary>
@@ -201,6 +192,7 @@ namespace CriptomonedaIziCoin {
 			this->button2->TabIndex = 13;
 			this->button2->Text = L"Transacciones";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &PerfilUsuario::button2_Click);
 			// 
 			// button3
 			// 
@@ -297,6 +289,9 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 	TexboxHash->SelectAll();
 	TexboxHash->Copy();
+}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	nuevo->getBilletera()->setIzicoins(20);
 }
 };
 }
