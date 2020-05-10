@@ -5,9 +5,9 @@ class Wallet {
 	private:
 		double IziCoins;
 		Transaccion *nueva;
-		long CpublicN;
-		long CpublicE;
-		long CprivadaD;
+		long long CpublicN;
+		long long CpublicE;
+		long long CprivadaD;
 	public:
 		string HashCode;
 
@@ -20,17 +20,17 @@ class Wallet {
 			IziCoins = IziCoins + Coins;
 		}
 
-		void setCpublicN(long _cpn) { this->CpublicN = _cpn; }
+		void setCpublicN(long long _cpn) { this->CpublicN = _cpn; }
 		
-		void setCpublicE(long _cpe) { this->CpublicE = _cpe; }
+		void setCpublicE(long long _cpe) { this->CpublicE = _cpe; }
 
-		void setCprivadaD(long _cpd) { this->CprivadaD = _cpd; }
+		void setCprivadaD(long long _cpd) { this->CprivadaD = _cpd; }
 
 		double getIzicoins() { return IziCoins; }
 
-		long getCpublicN()  { return CpublicN;  }
-		long getCpublicE()  { return CpublicE;  }
-		long getCprivadaD() { return CprivadaD; }
+		long long getCpublicN()  { return CpublicN;  }
+		long long getCpublicE()  { return CpublicE;  }
+		long long getCprivadaD() { return CprivadaD; }
 
 		void GenerarTran(double IziCoins, string destino);
 		Transaccion* getTransac();
