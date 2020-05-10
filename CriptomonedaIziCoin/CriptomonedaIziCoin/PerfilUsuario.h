@@ -296,6 +296,7 @@ namespace CriptomonedaIziCoin {
 	private: System::Void PerfilUsuario_Load(System::Object^  sender, System::EventArgs^  e) {
 		string correo;
 		string Contraseña;
+		bool validar = false;
 		//Convierte Los String^ en string para usarlos en clases
 		MarshalString(Corre, correo);
 		MarshalString(Contra, Contraseña);
@@ -313,9 +314,11 @@ namespace CriptomonedaIziCoin {
 		String^ IziDolar = gcnew String(coinzDolar.ToString());
 		labelCoinDolar->Text = IziDolar;
 
-		//GENERANDO CLAVE PRIVADA Y PUBLICA
+		//!GENERANDO CLAVE PRIVADA Y PUBLICA
 		if (nuevo->getBilletera()->getCpublicN() == 0) {
-			objRSA->generar(nuevo);
+			do {
+				validar = objRSA->generar(nuevo);
+			}while(validar == false);
 		}
 		else {
 			//No generar de nuevo
