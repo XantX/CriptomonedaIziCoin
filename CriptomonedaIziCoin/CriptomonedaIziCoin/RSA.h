@@ -122,7 +122,7 @@ tuple<InfInt, InfInt, InfInt> euclides(InfInt a, InfInt b) {
 }
 
 struct RSA {
-	static void generar(Usuario* objUsuario);
+	static bool generar(Usuario* objUsuario);
 	static vector<InfInt> encriptar(InfInt, InfInt);
 	static string desencriptar(string, InfInt, InfInt);
 	//static string desencriptar_d(string, InfInt, InfInt);
@@ -147,7 +147,7 @@ inline vector<InfInt> RSA::encriptar(InfInt e, InfInt n) {
 		resultado.push_back(modpow((int)c, e, n));
 	}
 	for (int i = 0; i < resultado.size(); i++) {
-		cout << resultado.at(i) << " ";
+		//cout << resultado.at(i) << " ";
 	}
 
 	return resultado;
@@ -179,29 +179,16 @@ inline string RSA::desencriptar(string msg, InfInt d, InfInt n) {
 	}
 
 	for (int i = 0; i < resultado.size(); i++) {
-		cout << (int)resultado.at(i) << " ";
+		//cout << (int)resultado.at(i) << " ";
 	}
 	return resultado;
 }
 
 //-------------------------------------------------------------------//
 
-void Congruente(int a, int b, int n) {
-	int num3;
-
-	num3 = max(a, b) - min(a, b);
-
-	if (num3 % n == 0) {
-		cout << "Si es congruente" << endl;
-	}
-	else {
-		cout << "No es congruente" << endl;
-	}
-}
-
-long MCD(long num1, long num2) {
-	long a, b;
-	long mcd;
+long long MCD(long long num1, long long num2) {
+	long long a, b;
+	long long mcd;
 	a = max(num1, num2);
 	b = min(num1, num2);
 
@@ -214,8 +201,8 @@ long MCD(long num1, long num2) {
 	return mcd;
 }
 
-bool makePrimo(long num) {
-	int divisor = 1, divisores = 0;
+bool es_Primo(long long num) {
+	long long divisor = 1, divisores = 0;
 
 	do {
 		if (num % divisor == 0) {
@@ -231,75 +218,124 @@ bool makePrimo(long num) {
 	}
 }
 
-long make_D(long phi) {
-	long d; Random r;
+long long make_D(long long phi) {
+	long long d; Random r;
 	do {
-		d = r.Next(2, phi);
-	} while (MCD(d, phi) != 1);
+		d = r.Next(1, phi);
+	} while (es_Primo(d) != true && MCD(d, phi) != 1);
 
-	
+	//cout << "El valor de d es: " << d << endl;
 	return d;
 }
 
 //Funcion que nos retorna un valor primo al azar
-void getPrimo(long& num) {
-
-	Random r; long a, b;
-	a = r.Next(100, 600);
-	b = r.Next(600, 1000);
+void getPrimo(long long& num) {
+	Random r;
 	do {
-		num = r.Next(a, b);
-	} while (makePrimo(num) != true);
+		num = r.Next(100, 800);
+		if (es_Primo(num) == true) { break; }
+
+	} while (es_Primo(num) != true);
 }
 
-void  encontrar_Valores(long num, long &p, long &q) {
-
-	for (int i = 0; i < num; i++) {
-		for (int j = 0; j < num; j++) {
-			if (i*j == num) {
+void  encontrar_Valores(long long num, long long &p, long long &q) {
+	/*
+	for (long long i = 0; i < num; i++) {
+		for (long long j = 0; j < num; j++) {
+			if (i*j == num && i == getP() && j == getQ()) {
 				p = i; q = j;
+				cout << "El valor de p es: " << p << " y el valor de q es:" << q << endl;
+				p = 0; q = 0;
 				return;
 			}
 		}
-	}
+	}*/
 
 }
-long Congruencia_Lineal_IziCoinRuptura(long e, long phi) { //ClavePublica (e,n)
-	//es phi es n me daba flojera cambiar todo n de la funcion
-	long m, d = 1, iterador, producto;
-	long n;//este es el phi 
-	long p, q;
-	encontrar_Valores(phi, p, q);//descomponiendo n en sus dos numeros primos
-	n = (p-1)*(q-1); // hallando phi
+
+//Funcion para hallar el valor de la CLAVE PRIVADA (d)
+long long Congruencia_Lineal_IziCoin_D(long long a, long long n) {
+	long long m, b = 1, iterador, verificador;
+
+	unsigned long long producto;
+
 	//a = 8; b = 7; n = 13; // 8x = 7 mod 13
 	iterador = 0;
-
-	long n1, n2;
+	producto = 0;
 	
 	do {
 		iterador++;
-		producto = e * iterador;
+		producto = a * iterador;
+		if (iterador > (a * a)) {
+			//cout << "TIEMPO EXCEDIDO" << endl << endl;
+			return 0;
+		}
+		else {
+			if (producto < 0) {
+				//cout << "ERROR, LOS SIGNOS NEGATIVOS NO SON VALIDOS";
+				return 0;
+			}
+			if (producto % n == 1) {
+				verificador = producto % n;
+				if (verificador != 1) {
+					//cout << "Algo salio mal en la comparacion" << endl;
+				}
+			}
+		}
 	} while (producto % n != 1);
 
-	e = producto % n; d = (d*iterador) % n;
+	//cout << a << "x = " << 1 << " mod " << n << endl;
+	a = (a*iterador) % n; b = (b*iterador) % n;
 
-	return d;
+	/*cout << a << "x = " << b << " + " << n << "k" << endl;*/
+
+
+	return b;
 }
 
-long Congruencia_Lineal_IziCoin(long a, long n) {
-	long m, b = 1, iterador, producto;
+//Funcion para crear las CLAVE PUBLICA (e)
+long long Congruencia_Lineal_IziCoin(long long a, long long n) {
+	long long m, b = 1, iterador, verificador = 0;
+
+	unsigned long long producto;
 
 	//a = 8; b = 7; n = 13; // 8x = 7 mod 13
 	iterador = 0;
-
-	long n1, n2;
+	producto = 0;
 
 	do {
 		iterador++;
 		producto = a * iterador;
+		if (iterador > (a * a)) {
+			//cout << "TIEMPO EXCEDIDO" << endl << endl;
+			return 0;
+		}
+		else {
+			if (producto < 0) {
+				//cout << "ERROR, LOS SIGNOS NEGATIVOS NO SON VALIDOS";
+				return 0;
+			}
+			if (producto % n == 1) {
+				/*cout << a << "*" << iterador << " = " << producto << endl;
+				cout << n << "*" << producto / n << " = " << n*(producto / n) << endl;*/
+				/*cout << "Residuo: " << producto % n << endl << endl;
+				cout << "Iterador: " << iterador << endl;*/
+
+				verificador = producto % n;
+
+				if (verificador != 1) {
+					//cout << "Algo salio mal en la comparacion" << endl;
+					return 0;
+				}
+			}
+		}
 	} while (producto % n != 1);
 
-	a = producto % n; b = (b*iterador) % n;
+	//cout << a << "x = " << 1 << " mod " << n << endl;
+	a = (a*iterador) % n; b = (b*iterador) % n;
+
+	/*cout << a << "x = " << b << " + " << n << "k" << endl;*/
+	
 
 
 	return b;
@@ -307,7 +343,7 @@ long Congruencia_Lineal_IziCoin(long a, long n) {
 
 //-------------------------------------------------------------------//
 
-
+/*
 inline void RSA::generar(Usuario* objUsuario) {
 	//InfInt p, q, n, phi, e, d;
 	long _d; long _phi; long _e, _p, _q, _n;
@@ -337,7 +373,7 @@ inline void RSA::generar(Usuario* objUsuario) {
 	/*cout << "Clave publica: (" << _n << "," << _e << ") " << endl;
 	cout << "Clave privada: (" << _n << "," << _d << ") " << endl << endl;
 
-	cout << "El valor de phi es: " << _phi << endl << endl;*/
+	cout << "El valor de phi es: " << _phi << endl << endl;
 
 	//Hallar el valor de "d" desde otro usuario
 	//long res = Congruencia_Lineal_IziCoin(_e, _phi);
@@ -345,4 +381,55 @@ inline void RSA::generar(Usuario* objUsuario) {
 	//Encontrando el valor de p y q
 	//encontrar_Valores(_n);
 
+}
+*/
+
+inline bool RSA::generar(Usuario* objUsuario) {
+	//InfInt p, q, n, phi, e, d;
+	long long _d; long long _phi; long long _e; long long _n;
+
+
+	//----------------
+	long long p2; getPrimo(p2);
+	long long q2;
+
+	do {
+		getPrimo(q2);
+	} while (q2 == p2);
+	//----------------
+
+
+	_n = p2 * q2;
+	_phi = (p2 - 1) * (q2 - 1);
+
+	_d = make_D(_phi);
+
+	_e = Congruencia_Lineal_IziCoin(_d, _phi);
+
+
+	//--------- MENU
+	if (_e == 0) {
+		return false;
+	}
+	else {
+		//menu(p2, q2, _n, _phi, _d, _e);
+
+		objUsuario->getBilletera()->setCpublicN(_n);
+		objUsuario->getBilletera()->setCprivadaD(_d);
+		objUsuario->getBilletera()->setCpublicE(_e);
+
+		//--------------
+		/**
+		long long res;
+		res = Congruencia_Lineal_IziCoin_D(_e, _phi);
+
+		//Reemplazar por objUsuario->CPublica y CPrivada (creo)
+		setP(p2); setQ(q2);
+
+
+		cout << "/-------------------------------/\n";
+		cout << "Encontrando el valor de p y q...\n";
+		encontrar_Valores(_n);*/
+		return true;
+	}
 }
