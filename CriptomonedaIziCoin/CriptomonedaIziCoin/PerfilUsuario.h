@@ -1,5 +1,7 @@
 #pragma once
 #include "Conector.h"
+#include "RedUsuarios.h"
+#include "RSA.h"
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -15,24 +17,27 @@ namespace CriptomonedaIziCoin {
 	{
 	public:
 		Usuario *nuevo;
-		
+		RedUsuarios* objRed;
+		RSA* objRSA;
 		
 		String^ Corre = gcnew String(" ");
 	private: System::Windows::Forms::TextBox^  TexboxHash;
+	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::TextBox^  textBox2;
 	public:
 		String^ Contra = gcnew String(" ");
 		PerfilUsuario(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+			objRed = new RedUsuarios();
 		}
 		
 	protected:
 
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~PerfilUsuario()
 		{
@@ -68,14 +73,14 @@ namespace CriptomonedaIziCoin {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -92,6 +97,10 @@ namespace CriptomonedaIziCoin {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->BotonDeCopiado = (gcnew System::Windows::Forms::Button());
 			this->TexboxHash = (gcnew System::Windows::Forms::TextBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -222,11 +231,47 @@ namespace CriptomonedaIziCoin {
 			this->TexboxHash->TabIndex = 16;
 			this->TexboxHash->Text = L"CodigoHash";
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(185, 155);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(114, 20);
+			this->textBox1->TabIndex = 17;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(185, 136);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(73, 13);
+			this->label1->TabIndex = 18;
+			this->label1->Text = L"Clave Privada";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(330, 136);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(72, 13);
+			this->label4->TabIndex = 19;
+			this->label4->Text = L"Clave Publica";
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(333, 154);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(116, 20);
+			this->textBox2->TabIndex = 20;
+			// 
 			// PerfilUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(794, 493);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->TexboxHash);
 			this->Controls->Add(this->BotonDeCopiado);
 			this->Controls->Add(this->button3);
@@ -251,12 +296,12 @@ namespace CriptomonedaIziCoin {
 #pragma endregion
 	private: System::Void PerfilUsuario_Load(System::Object^  sender, System::EventArgs^  e) {
 		string correo;
-		string Contraseña;
+		string ContraseÃ±a;
 		//Convierte Los String^ en string para usarlos en clases
 		MarshalString(Corre, correo);
-		MarshalString(Contra, Contraseña);
+		MarshalString(Contra, ContraseÃ±a);
 		// Busca al usuario ingresado en la red de usuarios
-		nuevo = ConectarConRed(correo, Contraseña, NuevaRed);
+		nuevo = ConectarConRed(correo, ContraseÃ±a, NuevaRed);
 		String^ Hash = gcnew String(nuevo->getBilletera()->HashCode.c_str());
 		//muestra el hash de la billetera del usuario logeado
 		TexboxHash->Text = Hash;//hash para que se le transfieran monedas
@@ -268,7 +313,21 @@ namespace CriptomonedaIziCoin {
 		
 		String^ IziDolar = gcnew String(coinzDolar.ToString());
 		labelCoinDolar->Text = IziDolar;
+
+		//GENERANDO CLAVE PRIVADA Y PUBLICA
+		if (nuevo->getBilletera()->getCpublicN() == 0) {
+			objRSA->generar(nuevo);
+		}
+		else {
+			//No generar de nuevo
+		}
 		
+		String^ CPriv = gcnew String("(" + nuevo->getBilletera()->getCpublicN().ToString() + ", " + nuevo->getBilletera()->getCprivadaD().ToString() + ")");
+		String^ CPub = gcnew String("(" + nuevo->getBilletera()->getCpublicN().ToString() + ", " + nuevo->getBilletera()->getCpublicE().ToString() + ")");
+		
+		textBox1->Text = CPriv;
+		textBox2->Text = CPub;
+
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		TranferenciasPanel^Pnle = gcnew TranferenciasPanel;
