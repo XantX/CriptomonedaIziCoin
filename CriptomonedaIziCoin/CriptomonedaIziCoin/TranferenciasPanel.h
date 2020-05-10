@@ -1,5 +1,6 @@
 #pragma once
-
+#include "Conector.h"
+#include "RSA.h"
 namespace CriptomonedaIziCoin {
 	
 	using namespace System;
@@ -308,7 +309,14 @@ private: System::Void TranferirButton_Click(System::Object^  sender, System::Eve
 		double coins = stod(iziCoins);
 		billetera->setIzicoins(-coins);
 		billetera->GenerarTran(coins, hashDestino);
+		//intento validar
+		long validar = Congruencia_Lineal_IziCoinRuptura(billetera->getCpublicE(), billetera->getCpublicN());
+		if (validar == billetera->getCprivadaD() ) {
+			MessageBox::Show("Se valido las claves");
+
+		}
 		NuevaRed.Tranferir(billetera->getTransac());
+		
 		IzicoinsEnBilletera->Text = billetera->getIzicoins().ToString();
 		textBoxCOins->Clear();
 		TexboxHashReceptor->Clear();

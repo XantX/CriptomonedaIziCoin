@@ -1,13 +1,13 @@
 #pragma once
-#include <iostream>
+//#include <iostream>
 #include <math.h>
 #include <algorithm>
 #include <stdlib.h>
-#include <vector>
-#include <string>
+//#include <vector>
+//#include <string>
 #include <tuple>
 #include "InfInt.h"
-#include "Usuario.h"
+//#include "Usuario.h"
 
 using namespace std;
 using namespace System;
@@ -237,7 +237,7 @@ long make_D(long phi) {
 		d = r.Next(2, phi);
 	} while (MCD(d, phi) != 1);
 
-	cout << "El valor de d es: " << d << endl;
+	
 	return d;
 }
 
@@ -252,21 +252,38 @@ void getPrimo(long& num) {
 	} while (makePrimo(num) != true);
 }
 
-void  encontrar_Valores(long num) {
-	long p, q;
-
+void  encontrar_Valores(long num, long &p, long &q) {
 
 	for (int i = 0; i < num; i++) {
 		for (int j = 0; j < num; j++) {
 			if (i*j == num) {
 				p = i; q = j;
-				cout << "El valor de p es: " << p << " y el valor de q es:" << q << endl;
-				p = 0; q = 0;
 				return;
 			}
 		}
 	}
 
+}
+long Congruencia_Lineal_IziCoinRuptura(long e, long phi) { //ClavePublica (e,n)
+	//es phi es n me daba flojera cambiar todo n de la funcion
+	long m, d = 1, iterador, producto;
+	long n;//este es el phi 
+	long p, q;
+	encontrar_Valores(phi, p, q);//descomponiendo n en sus dos numeros primos
+	n = (p-1)*(q-1); // hallando phi
+	//a = 8; b = 7; n = 13; // 8x = 7 mod 13
+	iterador = 0;
+
+	long n1, n2;
+	
+	do {
+		iterador++;
+		producto = e * iterador;
+	} while (producto % n != 1);
+
+	e = producto % n; d = (d*iterador) % n;
+
+	return d;
 }
 
 long Congruencia_Lineal_IziCoin(long a, long n) {
@@ -275,23 +292,15 @@ long Congruencia_Lineal_IziCoin(long a, long n) {
 	//a = 8; b = 7; n = 13; // 8x = 7 mod 13
 	iterador = 0;
 
-
-	m = MCD(a, n);
-
 	long n1, n2;
-	cout << a << "x = " << 1 << " + " << n << "k" << endl;
 
 	do {
 		iterador++;
 		producto = a * iterador;
 	} while (producto % n != 1);
 
-	cout << a * iterador << "x = " << 1 << " mod " << n << endl;
-
 	a = producto % n; b = (b*iterador) % n;
 
-	cout << a << "x = " << b << " + " << n << "k" << endl;
-	cout << "x = " << b << endl;
 
 	return b;
 }

@@ -35,7 +35,7 @@ class Wallet {
 		void GenerarTran(double IziCoins, string destino);
 		Transaccion* getTransac();
 		void RecibeUnaTransaccion(Transaccion *Recivido);
-		void GenerarClave();//Esta funcion debeb de generar un par de claves
+		
 };
 void Wallet::GenerarTran(double Izicoins, string destino){
 	nueva = new Transaccion(Izicoins, destino, HashCode);

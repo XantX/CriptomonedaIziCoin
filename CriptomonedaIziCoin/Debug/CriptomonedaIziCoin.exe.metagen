@@ -27,6 +27,8 @@ Class CriptomonedaIziCoin.PerfilUsuario: AutoLayout, AnsiClass, Class, Public, B
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Usuario* nuevo : Public
+    RedUsuarios* objRed : Public
+    RSA* objRSA : Public
     System.String Corre : Public
     System.String Contra : Public
 Class CriptomonedaIziCoin.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

@@ -1,7 +1,6 @@
 #pragma once
-#include "Conector.h"
-#include "RedUsuarios.h"
-#include "RSA.h"
+
+
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
