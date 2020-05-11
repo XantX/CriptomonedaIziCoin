@@ -23,12 +23,10 @@ c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\In
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(149): warning C4018: '<': no coinciden signed/unsigned
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(169): warning C4018: '<': no coinciden signed/unsigned
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(181): warning C4018: '<': no coinciden signed/unsigned
-c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(269): warning C4101: 'm': variable local sin referencia
-c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(277): warning C4101: 'n2': variable local sin referencia
-c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(277): warning C4101: 'n1': variable local sin referencia
-c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(290): warning C4101: 'm': variable local sin referencia
-c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(295): warning C4101: 'n2': variable local sin referencia
-c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(295): warning C4101: 'n1': variable local sin referencia
+c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(224): warning C4244: 'argumento': conversión de '__int64' a 'int'; posible pérdida de datos
+c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(254): warning C4101: 'm': variable local sin referencia
+c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(295): warning C4101: 'm': variable local sin referencia
+c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\RSA.h(335): warning C4101: 'm': variable local sin referencia
 c:\users\sebastian\desktop\gitproyect\criptomonedaizicoin\criptomonedaizicoin\iniciadordesesion.h(9): warning C4715: 'ConectarConRed': no todas las rutas de acceso de control devuelven un valor
   MyForm.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
   CriptomonedaIziCoin.vcxproj -> C:\Users\SEBASTIAN\Desktop\GitProyect\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.exe

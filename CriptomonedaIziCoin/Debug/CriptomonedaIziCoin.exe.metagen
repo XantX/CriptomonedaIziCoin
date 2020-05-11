@@ -22,6 +22,7 @@ Class CriptomonedaIziCoin.TranferenciasPanel: AutoLayout, AnsiClass, Class, Publ
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Wallet* billetera : Public
+    CadenaDeBloques* BlockChain : Public
 Class CriptomonedaIziCoin.PerfilUsuario: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

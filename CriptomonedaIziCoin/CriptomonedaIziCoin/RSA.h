@@ -239,20 +239,57 @@ void getPrimo(long long& num) {
 }
 
 void  encontrar_Valores(long long num, long long &p, long long &q) {
-	/*
+	
 	for (long long i = 0; i < num; i++) {
 		for (long long j = 0; j < num; j++) {
-			if (i*j == num && i == getP() && j == getQ()) {
+			if (i*j == num ) {
 				p = i; q = j;
-				cout << "El valor de p es: " << p << " y el valor de q es:" << q << endl;
-				p = 0; q = 0;
 				return;
 			}
 		}
-	}*/
+	}
 
 }
+long long Congruencia_LinealRomper(long long a, long long phi) {
+	long long m, b = 1, iterador, verificador;
 
+	unsigned long long producto;
+	long long p, q;
+	encontrar_Valores(phi, p, q);
+	long long n = (p-1)*(q-1);//phi
+	//a = 8; b = 7; n = 13; // 8x = 7 mod 13
+	iterador = 0;
+	producto = 0;
+
+	do {
+		iterador++;
+		producto = a * iterador;
+		if (iterador > (a * a)) {
+			//cout << "TIEMPO EXCEDIDO" << endl << endl;
+			return 0;
+		}
+		else {
+			if (producto < 0) {
+				//cout << "ERROR, LOS SIGNOS NEGATIVOS NO SON VALIDOS";
+				return 0;
+			}
+			if (producto % n == 1) {
+				verificador = producto % n;
+				if (verificador != 1) {
+					//cout << "Algo salio mal en la comparacion" << endl;
+				}
+			}
+		}
+	} while (producto % n != 1);
+
+	//cout << a << "x = " << 1 << " mod " << n << endl;
+	a = (a*iterador) % n; b = (b*iterador) % n;
+
+	/*cout << a << "x = " << b << " + " << n << "k" << endl;*/
+
+
+	return b;
+}
 //Funcion para hallar el valor de la CLAVE PRIVADA (d)
 long long Congruencia_Lineal_IziCoin_D(long long a, long long n) {
 	long long m, b = 1, iterador, verificador;
