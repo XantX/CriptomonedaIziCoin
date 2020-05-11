@@ -1,0 +1,36 @@
+﻿  MyForm.cpp
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(60): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(60): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(90): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(106): warning C4244: 'argumento': conversión de 'unsigned __int64' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(109): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(109): warning C4244: 'argumento': conversión de 'unsigned __int64' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(110): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(115): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(119): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(121): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(122): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(123): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(124): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(125): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(126): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(127): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\Sha256.h(128): warning C4244: 'argumento': conversión de 'llu' a 'uint32_t'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\RedUsuarios.h(20): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\IniciadorDeSesion.h(4): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\IniciadorDeSesion.h(13): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\IniciadorDeSesion.h(22): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\RSA.h(149): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\RSA.h(169): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\RSA.h(181): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\RSA.h(224): warning C4244: 'argumento': conversión de '__int64' a 'int'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\RSA.h(254): warning C4101: 'm': variable local sin referencia
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\RSA.h(295): warning C4101: 'm': variable local sin referencia
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\RSA.h(335): warning C4101: 'm': variable local sin referencia
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\DarleMonedasAlminero.h(3): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\PerfilUsuario.h(403): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\PerfilUsuario.h(412): warning C4018: '<': no coinciden signed/unsigned
+c:\users\sebastian\desktop\entregable\criptomonedaizicoin\criptomonedaizicoin\iniciadordesesion.h(9): warning C4715: 'ConectarConRed': no todas las rutas de acceso de control devuelven un valor
+  MyForm.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
+  CriptomonedaIziCoin.vcxproj -> C:\Users\SEBASTIAN\Desktop\Entregable\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.exe
+  CriptomonedaIziCoin.vcxproj -> C:\Users\SEBASTIAN\Desktop\Entregable\CriptomonedaIziCoin\Debug\CriptomonedaIziCoin.pdb (Partial PDB)

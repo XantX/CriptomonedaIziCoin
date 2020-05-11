@@ -1,0 +1,7 @@
+usuario, Contraseña
+
+"pepito", "Contrasena"
+"Maurico", "Lupita"
+"Lorena", "Tono"
+"Senor", "Correr"
+"Lupita", "hablar"
