@@ -314,12 +314,18 @@ namespace CriptomonedaIziCoin {
 	private: System::Void PerfilUsuario_Load(System::Object^  sender, System::EventArgs^  e) {
 		string correo;
 		string Contraseña;
+		
 		bool validar = false;
 		//Convierte Los String^ en string para usarlos en clases
 		MarshalString(Corre, correo);
 		MarshalString(Contra, Contraseña);
 		// Busca al usuario ingresado en la red de usuarios
 		nuevo = ConectarConRed(correo, Contraseña, NuevaRed);
+
+		if (nuevo->getIngreso()) {
+			nuevo->getBilletera()->setIzicoins(10);
+			nuevo->setIngreso();
+		}
 		String^ Hash = gcnew String(nuevo->getBilletera()->HashCode.c_str());
 		//muestra el hash de la billetera del usuario logeado
 		TexboxHash->Text = Hash;//hash para que se le transfieran monedas
@@ -368,7 +374,7 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 	TexboxHash->Copy();
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-	nuevo->getBilletera()->setIzicoins(20);
+	
 	listView1->Items->Clear();
 	listView2->Items->Clear();
 	if (nuevo->getBilletera()->arrayTransacRealizadas.size() != 0) {
