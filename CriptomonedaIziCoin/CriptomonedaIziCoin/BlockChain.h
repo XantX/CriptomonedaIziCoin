@@ -16,13 +16,13 @@ void CadenaDeBloques::escribirBloque(string nombreBloque) {
 	BloqueChain.open("BlockChain.txt", ios::app);
 	if (BloqueChain.fail()) {
 		//error
-	}else{ BloqueChain << nombreBloque; }
+	}else{ BloqueChain << nombreBloque<<"\n"; }
 	BloqueChain.close();
 }
 void CadenaDeBloques::agregarBloque( Transaccion*trn) {
 	Block bloque;
 	string numeroBloque = to_string(LongitudArray);
-	string BloqueNombre = SHA256::cifrar(trn->getHashRemitente() + "Bloque"+ numeroBloque);
+	string BloqueNombre = SHA256::cifrar(trn->getHashRemitente() +"Bloque"+ numeroBloque);
 	escribirBloque(BloqueNombre);
 	if (LongitudArray == 0) {
 		bloque.crearPrimerBloque(trn, BloqueNombre);

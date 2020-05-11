@@ -3,6 +3,8 @@
 #include "RSA.h"
 #include "Block.h"
 #include "BlockChain.h"
+#include <time.h>
+#include "DarleMonedasAlminero.h"
 namespace CriptomonedaIziCoin {
 	
 	using namespace System;
@@ -29,6 +31,7 @@ namespace CriptomonedaIziCoin {
 	public:
 		Wallet*billetera;
 		CadenaDeBloques*BlockChain = new CadenaDeBloques();
+		
 		TranferenciasPanel(void)
 		{
 			InitializeComponent();
@@ -317,6 +320,9 @@ private: System::Void TranferirButton_Click(System::Object^  sender, System::Eve
 		IzicoinsEnBilletera->Text = billetera->getIzicoins().ToString();
 		if (Congruencia_LinealRomper(billetera->getCpublicE(), billetera->getCpublicN()) == billetera->getCprivadaD()) {
 			MessageBox::Show("Se confirma la transacion");
+
+			monedas(NuevaRed, hashDestino, billetera->HashCode);
+			MessageBox::Show("se entregaron las monedas");
 		}
 		textBoxCOins->Clear();
 		TexboxHashReceptor->Clear();

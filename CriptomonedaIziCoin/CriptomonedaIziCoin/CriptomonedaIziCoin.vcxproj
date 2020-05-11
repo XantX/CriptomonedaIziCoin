@@ -158,7 +158,7 @@
     <ClInclude Include="Transaccion.h" />
     <ClInclude Include="Transferir.h" />
     <ClInclude Include="Usuario.h" />
-    <ClInclude Include="UsuarioGlobal.h" />
+    <ClInclude Include="DarleMonedasAlminero.h" />
     <ClInclude Include="Wallet.h" />
   </ItemGroup>
   <ItemGroup>
