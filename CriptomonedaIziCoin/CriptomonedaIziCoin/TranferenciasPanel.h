@@ -131,6 +131,7 @@ namespace CriptomonedaIziCoin {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &TranferenciasPanel::pictureBox1_Click);
 			// 
 			// MibilleteraTitulo
 			// 
@@ -339,6 +340,23 @@ private: System::Void TranferenciasPanel_Load(System::Object^  sender, System::E
 }
 private: System::Void CancelarButton_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->Close();
+}
+private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (textBoxCOins->Text != "") {
+		string cantidad;
+
+		String^Cant = gcnew String(textBoxCOins->Text);
+		MarshalString(Cant, cantidad);
+
+		double Dolares = stod(cantidad) * 3.10;
+
+		TexDolare->Text = Dolares.ToString();
+	}
+	else {
+		MessageBox::Show("No hay valores para comvertir");
+	}
+	
+	
 }
 };
 }
