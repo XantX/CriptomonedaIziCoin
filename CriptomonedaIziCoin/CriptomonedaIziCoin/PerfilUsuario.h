@@ -275,11 +275,12 @@ namespace CriptomonedaIziCoin {
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
 			this->label1->Location = System::Drawing::Point(182, 392);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(171, 13);
+			this->label1->Size = System::Drawing::Size(254, 20);
 			this->label1->TabIndex = 22;
-			this->label1->Text = L"Historial de Transaciones recividas";
+			this->label1->Text = L"Historial de Transaciones recibidas";
 			this->label1->Click += gcnew System::EventHandler(this, &PerfilUsuario::label1_Click_1);
 			// 
 			// PerfilUsuario
@@ -377,6 +378,11 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	
 	listView1->Items->Clear();
 	listView2->Items->Clear();
+	String^ IziCoins = gcnew String(nuevo->getBilletera()->getIzicoins().ToString());
+	LabalCantIziCoins->Text = IziCoins;
+	double coinzDolar = nuevo->getBilletera()->getIzicoins() * 3.10;
+	String^ IziDolar = gcnew String(coinzDolar.ToString());
+	labelCoinDolar->Text = IziDolar;
 	if (nuevo->getBilletera()->arrayTransacRealizadas.size() != 0) {
 		for (long i = 0; i < nuevo->getBilletera()->arrayTransacRealizadas.size(); ++i) {
 			ListViewItem ^lv1 = gcnew ListViewItem(nuevo->getBilletera()->arrayTransacRealizadas[i]->getIzicoins().ToString());

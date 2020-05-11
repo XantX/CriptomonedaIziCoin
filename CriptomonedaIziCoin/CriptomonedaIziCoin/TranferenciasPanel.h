@@ -327,7 +327,7 @@ private: System::Void TranferirButton_Click(System::Object^  sender, System::Eve
 		}
 		textBoxCOins->Clear();
 		TexboxHashReceptor->Clear();
-
+		TexDolare->Clear();
 	}
 	else {
 		MessageBox::Show("El hash del receptor no se encuentra en nuestra red");
@@ -353,7 +353,7 @@ private: System::Void pictureBox1_Click(System::Object^  sender, System::EventAr
 		TexDolare->Text = Dolares.ToString();
 	}
 	else {
-		MessageBox::Show("No hay valores para comvertir");
+		MessageBox::Show("No hay valores para convertir");
 	}
 	
 	
