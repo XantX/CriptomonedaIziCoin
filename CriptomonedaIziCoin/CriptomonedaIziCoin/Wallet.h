@@ -8,9 +8,11 @@ class Wallet {
 		long long CpublicN;
 		long long CpublicE;
 		long long CprivadaD;
+		
 	public:
 		string HashCode;
-
+		vector<Transaccion*> arrayTransacRealizadas;
+		vector<Transaccion*> arrayTransacRecibidas;
 		Wallet(string correo, string contraseña) {
 			IziCoins = 0;
 			HashCode = SHA256::cifrar(correo + contraseña);
@@ -31,7 +33,8 @@ class Wallet {
 		long long getCpublicN()  { return CpublicN;  }
 		long long getCpublicE()  { return CpublicE;  }
 		long long getCprivadaD() { return CprivadaD; }
-
+		vector<Transaccion*> getRealizadas() { return arrayTransacRealizadas; }
+		vector<Transaccion*> getRecividas() { return arrayTransacRecibidas; }
 		void GenerarTran(double IziCoins, string destino);
 		Transaccion* getTransac();
 		void RecibeUnaTransaccion(Transaccion *Recivido);
@@ -39,8 +42,10 @@ class Wallet {
 };
 void Wallet::GenerarTran(double Izicoins, string destino){
 	nueva = new Transaccion(Izicoins, destino, HashCode);
+	arrayTransacRealizadas.push_back(nueva);
 }
 Transaccion* Wallet::getTransac() { return nueva; }
 void Wallet::RecibeUnaTransaccion(Transaccion *Recivido) {
 	setIzicoins(Recivido->getIzicoins());
+	arrayTransacRecibidas.push_back(Recivido);
 }

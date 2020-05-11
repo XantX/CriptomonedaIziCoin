@@ -21,10 +21,17 @@ namespace CriptomonedaIziCoin {
 		
 		String^ Corre = gcnew String(" ");
 	private: System::Windows::Forms::TextBox^  TexboxHash;
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::ColumnHeader^  Cantidad;
+
+	private: System::Windows::Forms::ColumnHeader^  Destino;
+	private: System::Windows::Forms::ListView^  listView2;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader1;
+	private: System::Windows::Forms::ColumnHeader^  RecidividoDe;
 	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::TextBox^  textBox2;
+
+
+
+
 	public:
 		String^ Contra = gcnew String(" ");
 		PerfilUsuario(void)
@@ -86,6 +93,8 @@ namespace CriptomonedaIziCoin {
 			this->BotonTranferir = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->listView1 = (gcnew System::Windows::Forms::ListView());
+			this->Cantidad = (gcnew System::Windows::Forms::ColumnHeader());
+			this->Destino = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Transaccion_titulo = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->LabalCantIziCoins = (gcnew System::Windows::Forms::Label());
@@ -96,18 +105,18 @@ namespace CriptomonedaIziCoin {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->BotonDeCopiado = (gcnew System::Windows::Forms::Button());
 			this->TexboxHash = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->listView2 = (gcnew System::Windows::Forms::ListView());
+			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->RecidividoDe = (gcnew System::Windows::Forms::ColumnHeader());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// BotonTranferir
 			// 
-			this->BotonTranferir->Location = System::Drawing::Point(541, 233);
+			this->BotonTranferir->Location = System::Drawing::Point(12, 58);
 			this->BotonTranferir->Name = L"BotonTranferir";
-			this->BotonTranferir->Size = System::Drawing::Size(179, 23);
+			this->BotonTranferir->Size = System::Drawing::Size(137, 23);
 			this->BotonTranferir->TabIndex = 0;
 			this->BotonTranferir->Text = L"Tranferir";
 			this->BotonTranferir->UseVisualStyleBackColor = true;
@@ -127,18 +136,30 @@ namespace CriptomonedaIziCoin {
 			// 
 			// listView1
 			// 
-			this->listView1->Location = System::Drawing::Point(185, 284);
+			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(2) { this->Cantidad, this->Destino });
+			this->listView1->Location = System::Drawing::Point(185, 247);
 			this->listView1->Name = L"listView1";
-			this->listView1->Size = System::Drawing::Size(567, 179);
+			this->listView1->Size = System::Drawing::Size(567, 132);
 			this->listView1->TabIndex = 5;
 			this->listView1->UseCompatibleStateImageBehavior = false;
+			this->listView1->View = System::Windows::Forms::View::Details;
+			// 
+			// Cantidad
+			// 
+			this->Cantidad->Text = L"Cantidad";
+			this->Cantidad->Width = 71;
+			// 
+			// Destino
+			// 
+			this->Destino->Text = L"Destino";
+			this->Destino->Width = 253;
 			// 
 			// Transaccion_titulo
 			// 
 			this->Transaccion_titulo->AutoSize = true;
 			this->Transaccion_titulo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Transaccion_titulo->Location = System::Drawing::Point(181, 236);
+			this->Transaccion_titulo->Location = System::Drawing::Point(181, 208);
 			this->Transaccion_titulo->Name = L"Transaccion_titulo";
 			this->Transaccion_titulo->Size = System::Drawing::Size(195, 20);
 			this->Transaccion_titulo->TabIndex = 6;
@@ -186,25 +207,25 @@ namespace CriptomonedaIziCoin {
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::SystemColors::HotTrack;
-			this->pictureBox1->Location = System::Drawing::Point(0, 1);
+			this->pictureBox1->Location = System::Drawing::Point(3, 3);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(162, 494);
+			this->pictureBox1->Size = System::Drawing::Size(162, 560);
 			this->pictureBox1->TabIndex = 12;
 			this->pictureBox1->TabStop = false;
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(12, 63);
+			this->button2->Location = System::Drawing::Point(382, 208);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(137, 23);
 			this->button2->TabIndex = 13;
-			this->button2->Text = L"Transacciones";
+			this->button2->Text = L"Actualizar";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &PerfilUsuario::button2_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(12, 440);
+			this->button3->Location = System::Drawing::Point(12, 526);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(137, 23);
 			this->button3->TabIndex = 14;
@@ -230,47 +251,45 @@ namespace CriptomonedaIziCoin {
 			this->TexboxHash->TabIndex = 16;
 			this->TexboxHash->Text = L"CodigoHash";
 			// 
-			// textBox1
+			// listView2
 			// 
-			this->textBox1->Location = System::Drawing::Point(185, 155);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(114, 20);
-			this->textBox1->TabIndex = 17;
+			this->listView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(2) { this->columnHeader1, this->RecidividoDe });
+			this->listView2->Location = System::Drawing::Point(185, 422);
+			this->listView2->Name = L"listView2";
+			this->listView2->Size = System::Drawing::Size(567, 127);
+			this->listView2->TabIndex = 21;
+			this->listView2->UseCompatibleStateImageBehavior = false;
+			this->listView2->View = System::Windows::Forms::View::Details;
+			this->listView2->SelectedIndexChanged += gcnew System::EventHandler(this, &PerfilUsuario::listView2_SelectedIndexChanged);
+			// 
+			// columnHeader1
+			// 
+			this->columnHeader1->Text = L"Cantidad";
+			this->columnHeader1->Width = 71;
+			// 
+			// RecidividoDe
+			// 
+			this->RecidividoDe->Text = L"Recibido de";
+			this->RecidividoDe->Width = 489;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(185, 136);
+			this->label1->Location = System::Drawing::Point(182, 392);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(73, 13);
-			this->label1->TabIndex = 18;
-			this->label1->Text = L"Clave Privada";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(330, 136);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(72, 13);
-			this->label4->TabIndex = 19;
-			this->label4->Text = L"Clave Publica";
-			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(333, 154);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(116, 20);
-			this->textBox2->TabIndex = 20;
+			this->label1->Size = System::Drawing::Size(171, 13);
+			this->label1->TabIndex = 22;
+			this->label1->Text = L"Historial de Transaciones recividas";
+			this->label1->Click += gcnew System::EventHandler(this, &PerfilUsuario::label1_Click_1);
 			// 
 			// PerfilUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(794, 493);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->label4);
+			this->ClientSize = System::Drawing::Size(794, 561);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->BotonTranferir);
+			this->Controls->Add(this->listView2);
 			this->Controls->Add(this->TexboxHash);
 			this->Controls->Add(this->BotonDeCopiado);
 			this->Controls->Add(this->button3);
@@ -283,7 +302,6 @@ namespace CriptomonedaIziCoin {
 			this->Controls->Add(this->Transaccion_titulo);
 			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->BotonTranferir);
 			this->Name = L"PerfilUsuario";
 			this->Text = L"PerfilUsuario";
 			this->Load += gcnew System::EventHandler(this, &PerfilUsuario::PerfilUsuario_Load);
@@ -324,11 +342,8 @@ namespace CriptomonedaIziCoin {
 			//No generar de nuevo
 		}
 		
-		String^ CPriv = gcnew String("(" + nuevo->getBilletera()->getCpublicN().ToString() + ", " + nuevo->getBilletera()->getCprivadaD().ToString() + ")");
-		String^ CPub = gcnew String("(" + nuevo->getBilletera()->getCpublicN().ToString() + ", " + nuevo->getBilletera()->getCpublicE().ToString() + ")");
 		
-		textBox1->Text = CPriv;
-		textBox2->Text = CPub;
+		
 
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -354,6 +369,32 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	nuevo->getBilletera()->setIzicoins(20);
+	listView1->Items->Clear();
+	listView2->Items->Clear();
+	if (nuevo->getBilletera()->arrayTransacRealizadas.size() != 0) {
+		for (long i = 0; i < nuevo->getBilletera()->arrayTransacRealizadas.size(); ++i) {
+			ListViewItem ^lv1 = gcnew ListViewItem(nuevo->getBilletera()->arrayTransacRealizadas[i]->getIzicoins().ToString());
+			String^hashdestin = gcnew String(nuevo->getBilletera()->arrayTransacRealizadas[i]->gethashDestino().c_str());
+			lv1->SubItems->Add(hashdestin);//destino
+			listView1->Items->Add(lv1);
+		}
+	}
+	else { MessageBox::Show("No tiene histotial de transaciones realizadas"); }
+	if (nuevo->getBilletera()->arrayTransacRecibidas.size() != 0) {
+		for (long i = 0; i < nuevo->getBilletera()->arrayTransacRecibidas.size(); ++i) {
+			ListViewItem ^lv2 = gcnew ListViewItem(nuevo->getBilletera()->arrayTransacRecibidas[i]->getIzicoins().ToString());
+			String^hashRemitente = gcnew String(nuevo->getBilletera()->arrayTransacRecibidas[i]->getHashRemitente().c_str());
+			lv2->SubItems->Add(hashRemitente);//remitente
+			listView2->Items->Add(lv2);
+		}
+	}
+	else { MessageBox::Show("No tiene historias de transaciones recibidas"); }
+	
+	
+}
+private: System::Void listView2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

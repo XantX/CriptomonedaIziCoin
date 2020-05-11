@@ -9,6 +9,7 @@ RedUsuarios NuevaRed;
 #include "TranferenciasPanel.h"
 
 #include "PerfilUsuario.h"
+
 namespace CriptomonedaIziCoin {
 
 	using namespace System;
@@ -32,7 +33,7 @@ namespace CriptomonedaIziCoin {
 		Usuario *Usuario3 = new Usuario("Lorena", "Tono");
 		Usuario *Usuario4 = new Usuario("Senor", "Correr");
 		Usuario *Usuario5 = new Usuario("Lupita", "hablar");
-
+		
 		MyForm(void)
 		{
 			InitializeComponent();

@@ -322,7 +322,7 @@ private: System::Void TranferirButton_Click(System::Object^  sender, System::Eve
 			MessageBox::Show("Se confirma la transacion");
 
 			monedas(NuevaRed, hashDestino, billetera->HashCode);
-			MessageBox::Show("se entregaron las monedas");
+			MessageBox::Show("se entregaron las monedas al minero");
 		}
 		textBoxCOins->Clear();
 		TexboxHashReceptor->Clear();
